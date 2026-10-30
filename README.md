@@ -83,11 +83,3 @@ Para rodar os testes a qualquer momento pelo terminal:
 node --test test_app.js
 ```
 
----
-
-## 💡 Sugestões de Desafios para Praticar
-
-Quando estiver confortável com o código, tente adicionar uma dessas melhorias por conta própria:
-1. **Botão de "Limpar Tudo":** Criar um botão para remover todas as tarefas de uma só vez.
-2. **Filtros de visualização:** Botões para ver apenas as tarefas "Pendentes" ou apenas as "Concluídas".
-3. **Data/Horário de criação:** Mostrar a hora em que cada tarefa foi adicionada.
