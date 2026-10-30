@@ -1,0 +1,260 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   Padroniza o comportamento de margens, fontes e medidas no navegador.
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  color: #334e68;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+}
+
+/* ==========================================================================
+   2. CONTAINER PRINCIPAL (CARD DA APLICAÇÃO)
+   ========================================================================== */
+.app-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================================================
+   3. CABEÇALHO
+   ========================================================================== */
+.app-header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  color: #102a43;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  font-size: 0.95rem;
+  color: #627d98;
+}
+
+/* ==========================================================================
+   4. FORMULÁRIO DE ENTRADA (CAMPO DE TEXTO + BOTÃO)
+   ========================================================================== */
+.formulario-tarefa {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#input-nova-tarefa {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #d9e2ec;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #102a43;
+}
+
+#input-nova-tarefa:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+#btn-adicionar {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#btn-adicionar:hover {
+  background-color: #1d4ed8;
+}
+
+#btn-adicionar:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   5. BARRA DE RESUMO (CONTADORES)
+   ========================================================================== */
+.resumo-tarefas {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f0f4f8;
+  font-size: 0.88rem;
+  color: #627d98;
+}
+
+.resumo-tarefas strong {
+  color: #243b53;
+}
+
+/* ==========================================================================
+   6. LISTA DE TAREFAS (ITENS)
+   ========================================================================== */
+.lista-tarefas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-tarefa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  transition: all 0.25s ease;
+}
+
+/* Estado de Tarefa PENDENTE (Destaca em tom neutro/azul para atrair atenção) */
+.item-tarefa.pendente {
+  background-color: #ffffff;
+  border-left: 5px solid #3b82f6; /* Barra lateral azul viva */
+}
+
+.item-tarefa.pendente:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  border-left-color: #2563eb;
+}
+
+/* Estado de Tarefa CONCLUÍDA (Visual esverdeado suave e texto riscado) */
+.item-tarefa.concluida {
+  background-color: #f0fdf4; /* Fundo verde bem suave */
+  border-color: #dcfce7;
+  border-left: 5px solid #10b981; /* Barra lateral verde de sucesso */
+  opacity: 0.85;
+}
+
+.item-tarefa.concluida:hover {
+  opacity: 1;
+  background-color: #eafbee;
+}
+
+/* Área esquerda do item: checkbox customizado e texto */
+.corpo-tarefa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0; /* Garante que o texto quebre linha corretamente */
+  cursor: pointer;
+  user-select: none;
+}
+
+.corpo-tarefa input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #10b981;
+}
+
+.texto-tarefa {
+  font-size: 0.98rem;
+  color: #1e293b;
+  word-break: break-word;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+/* Texto riscado e acinzentado quando concluída */
+.item-tarefa.concluida .texto-tarefa {
+  text-decoration: line-through;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   7. ÁREA DE AÇÕES E BADGES DE STATUS
+   ========================================================================== */
+.acoes-tarefa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* Estilo base das etiquetas (badges) */
+.badge-status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+/* Etiqueta de tarefa pendente */
+.badge-pendente {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+/* Etiqueta de tarefa concluída */
+.badge-concluida {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+/* ==========================================================================
+   8. BOTÃO DE REMOVER
+   ========================================================================== */
+.btn-remover {
+  background: none;
+  border: none;
+  color: #e12d39;
+  font-size: 1.1rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-remover:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/* ==========================================================================
+   9. MENSAGEM DE LISTA VAZIA
+   ========================================================================== */
+.mensagem-vazia {
+  text-align: center;
+  padding: 24px 12px;
+  color: #829ab1;
+  font-size: 0.95rem;
+  display: none; /* Controlado via JavaScript */
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Lista de Tarefas</title>
+  <!-- Vinculação do arquivo de estilos visuais (CSS) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Container principal que centraliza e organiza o conteúdo na tela -->
+  <main class="app-container">
+    
+    <!-- Cabeçalho da aplicação -->
+    <header class="app-header">
+      <h1>Minha Lista de Tarefas</h1>
+      <p class="subtitulo">Organize o seu dia a dia de forma simples</p>
+    </header>
+
+    <!-- Seção de entrada: onde o usuário digita e adiciona novas tarefas -->
+    <section class="formulario-tarefa">
+      <input 
+        type="text" 
+        id="input-nova-tarefa" 
+        placeholder="O que você precisa fazer?" 
+        autocomplete="off"
+      >
+      <button id="btn-adicionar" type="button">
+        Adicionar
+      </button>
+    </section>
+
+    <!-- Barra de resumo: contadores de tarefas totais e concluídas -->
+    <section class="resumo-tarefas">
+      <span>Total: <strong id="contador-total">0</strong></span>
+      <span>Concluídas: <strong id="contador-concluidas">0</strong></span>
+    </section>
+
+    <!-- Lista onde os itens de tarefas serão inseridos dinamicamente pelo JavaScript -->
+    <ul id="lista-tarefas" class="lista-tarefas">
+      <!-- O JavaScript irá criar e inserir os <li> aqui automaticamente -->
+    </ul>
+
+    <!-- Mensagem exibida caso não haja nenhuma tarefa cadastrada -->
+    <div id="mensagem-vazia" class="mensagem-vazia">
+      <span>✨ Nenhuma tarefa no momento. Adicione uma acima para começar!</span>
+    </div>
+
+  </main>
+
+  <!-- Vinculação do arquivo de lógica e interatividade (JavaScript) -->
+  <script src="script.js"></script>
+</body>
+</html>
